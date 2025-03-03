@@ -59,7 +59,7 @@ let totalEmpHrs = 0;
 let totalWorkingDays = 0;
 let empDailyWageArr = new Array();
 let empDailyWageMap = new Map();
-
+let empDailyHrsAndWageArr = new Array(); // UC - 10 
 // UC - 7 Array UC - 8 MAP 
 while(totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS){
     totalWorkingDays++;
@@ -68,6 +68,18 @@ while(totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NUM_OF_WORKING_DAYS)
     totalEmpHrs += empHrs;
     empDailyWageArr.push(calcDailyWage(empHrs));
     empDailyWageArr.set(totalWorkingDays , calcDailyWage(empHrs));
+    
+    // UC 10 feature
+    empDailyHrsAndWageArr.push(
+        {
+            dayNum:totalWorkingDays,
+            dailyHours : empHrs,
+            dailyWage : calcDailyWage(empHrs),
+            toString(){
+                return 'Day' + this.dayNum + ' => Working Hours is ' + this.dailyHours + 'Amd Wage Earned = ' + this.dailyWage 
+            },
+        }
+    );
 }
 
 
@@ -171,9 +183,9 @@ console.log ("Full Working Days: " + fullWorkingDays);
 console.log("Part time working days " + partWorkingDays);
 console.log("Non Working Days: " + nonWorkingDays);
 
+// uc-10 
 
-
-
+console.log("UC_10 showing Daily Hours worked and Wage Earned: " + empDailyHrsAndWageArr);
 
 
 
