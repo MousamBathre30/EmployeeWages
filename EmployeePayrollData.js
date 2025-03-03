@@ -26,6 +26,31 @@ class EmployeePayrollData{
         } else throw "Name is Incorrect!";
        
     }
+  
+    get id(){
+        return this.id;
+    }
+
+    set id(id){
+        let idRegex = RegExp([0-9]*$);
+        if(idRegex.test(id)){
+            this.id = id;
+        }else throw "ID is not digit";
+
+    }
+
+    get salary(){
+        return this.id;
+    }
+
+    set salary(salary){
+        let salaryRegex = RegExp([0-9]*$);
+        if(salaryRegex.test(id)){
+            this.id = id;
+        }else throw "ID is not digit";
+
+    }
+
 
     // method 
     toString(){
@@ -50,3 +75,4 @@ try{
 }
 let newEmployeePayrollData = new EmployeePayrollData(1 , "Terrisa" , 30000 , "F" , new Date());
 console.log(newEmployeePayrollData.toString());
+
